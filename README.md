@@ -5,7 +5,7 @@
 This retail gaint deals with internal structured data pertainig to customer biz addressess, SKU product codes & description and product heirarchy descriptions for each SKU. It buys/collects data from external vendors to augument its marketing reach and in the process, the external datasets have thier owm nomenclature. i.e. fields and descriptions are bit different but pointing to same data row/record. Hence data needs to be matched accurately to get meaningful analytics. Problem needs to address 3 datasets namely Address, SKU and Product Hierarchy (classifications).
 
 ##Proposed Solution and ShinyR PoC Web App##
-<small><i>[ShinyR Web App code is in the above folders submitted on Apr 2016 and also hosted in RStudio's cloud app platform ShinyApps.io]</i></small>
+<small><i>[ShinyR Web App code is in the above folders submitted on Apr 2016 to dextra.sg platform and also hosted in RStudio's cloud app platform ShinyApps.io]</i></small>
 
 Data blending in this context is basically a subset of Record
 Linkage and De-Duplication problem. Given the constraints of data which
