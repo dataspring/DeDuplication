@@ -2,10 +2,10 @@
 ----------
 
 ##Business Problem##
-Unilever deals with internal structured data pertainig to customer biz addressess, SKU product codes & description and product heirarchy descriptions for each SKU. It buys/collects data from external vendors to augument its marketing reach and in teh process, the external datasets have thier owm nomenclature. i.e. fields and descriptions are bit different but pointing to same data row/record. Hence data needs to be matched accurately to get meaningful analytics.
+Unilever deals with internal structured data pertainig to customer biz addressess, SKU product codes & description and product heirarchy descriptions for each SKU. It buys/collects data from external vendors to augument its marketing reach and in teh process, the external datasets have thier owm nomenclature. i.e. fields and descriptions are bit different but pointing to same data row/record. Hence data needs to be matched accurately to get meaningful analytics. Problem needs to address 3 datasets namely Address, SKU and Product Hierarchy (classifications).
 
 ##Proposed Solution and ShinyR PoC Web App##
-<small><i>[ShinyR Web App code is in teh above folders and also hosted in RStudio ShinyApps.io]</></small>
+<small><i>[ShinyR Web App code is in teh above folders and also hosted in RStudio's cloud app platform ShinyApps.io]</i></small>
 
 Data blending in the Unilever’s context is basically a subset of Record
 Linkage and De-Duplication problem. Given the constraints of data which
@@ -18,6 +18,18 @@ is the reduction of the amount of data pairs through focusing on
 specified agreement patterns. Whereas SKU dataset can leverage this
 feature to a limited extend and Product Hierarchy utilizes a pure simple
 weighted distance ensemble.
+
+Solution aspects are discussed against each dataset with PoC wep app hosted seperately. 
+
+> **Team**
+>
+> **Nachi Nachiappan**, a data practioner, has worked in enterprise IT
+> industry for 15 years and possess diverse business domain expertise
+> including exposure to retail & financial industries. Data science
+> being my passion, I keep dabbling on such projects and I hope this
+> proposal is worth that effort to positively make some impact on data
+> blending in enterprise and public realm.
+
 
 [1. Methodology and Effectiveness ](#_Toc448178836)
 
@@ -44,14 +56,6 @@ steps:
 Above process is used fully and sparingly based on each dataset
 properties and blending requirements
 
-> **Team**
->
-> **Nachi Nachiappan**, a data practioner, has worked in enterprise IT
-> industry for 15 years and possess diverse business domain expertise
-> including exposure to retail & financial industries. Data science
-> being my passion, I keep dabbling on such projects and I hope this
-> proposal is worth that effort to positively make some impact on data
-> blending in enterprise and public realm.
 
 <a name="_Toc448178836" ></a>
 ##1. Methodology and Effectiveness##
@@ -172,7 +176,22 @@ properties and blending requirements
 <table>
  <tr>
   <td width=176>
-  <p>Address Dataset</p>
+  <table>
+     <tr>
+     <td><p>Address Dataset</p></td>
+     </tr>
+     <tr>
+      <td width=176>
+      <p>SKU Dataset</p>
+      </td>
+     </tr>
+     <tr>
+      <td width=176>
+      <p>Product Hierarchy</p>
+      </td>
+     </tr>
+  </table>
+  
   </td>
   <td width=516>
   <p>An ensemble of distance functions
@@ -210,16 +229,7 @@ properties and blending requirements
   <p>&nbsp;</p>
   </td>
  </tr>
- <tr>
-  <td width=176>
-  <p>SKU Dataset</p>
-  </td>
- </tr>
- <tr>
-  <td width=176>
-  <p>Product Hierarchy</p>
-  </td>
- </tr>
+
 </table>
 
 
