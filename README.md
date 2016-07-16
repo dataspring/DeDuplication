@@ -52,87 +52,167 @@ properties and blending requirements
 
 **Data Preparation:**
 
-| tyut  	| ytuty 	|
-|-------	|-------	|
-| tyutu 	| tyutu 	|
-| gfjgj 	| gfj   	|
+<table>
+ <tr>
+  <td width=176>
+  <p>Address Dataset</p>
+  </td>
+  <td width=516>
+  <p>All fields are already in Upper
+  Case and no further data prep is required.</p>
+  <p>All fields are merged into one
+  field</p>
+  </td>
+ </tr>
+ <tr>
+  <td width=176>
+  <p>SKU Dataset</p>
+  </td>
+  <td width=516>
+  <p>Package in Internal Dataset was
+  reduced to Plastic for 'BOTTLE', 'SACHET', 'POUCH'</p>
+  <p>SUBGEMENT and CATEGORY were ignored</p>
+  <p>All data were lower-cased</p>
+  <p>PACKSIZE whitespaces were removed
+  and for those not present were borrowed from 'SIZE' field</p>
+  <p>New DESCRP field was created from
+  rest of the fields</p>
+  </td>
+ </tr>
+ <tr>
+  <td width=176>
+  <p>Product Hierarchy</p>
+  </td>
+  <td width=516>
+  <p>All fields are already in Upper
+  Case and no further data prep is required. This dataset has only single field</p>
+  </td>
+ </tr>
+</table>
 
-
-  |---|---|
-|  Address Dataset | ```All fields are already in Upper Case and no further data prep is required.
-All fields are merged into one field```  |
-|---|---|
-| SKU Dataset  | ```Package in Internal Dataset was reduced to Plastic for ‘BOTTLE’, ‘SACHET’, ‘POUCH’
-SUBGEMENT and CATEGORY were ignored
-All data were lower-cased
-PACKSIZE whitespaces were removed and for those not present were borrowed from ‘SIZE’ field
-New DESCRP field was created from rest of the fields```  |
-|---|---|
-|  Product Hierarchy |  All fields are already in Upper Case and no further data prep is required. This dataset has only single field |
-|---|---|
 **Basic Stochastic Distance Measurement / Blocking:**
+<table>
+ <tr>
+  <td width=176>
+  <p>Address Dataset</p>
+  </td>
+  <td width=516>
+  <p>Uses 'Ensemble of Distance Measurements'
+  straightaway </p>
+  </td>
+ </tr>
+ <tr>
+  <td width=176>
+  <p>SKU Dataset</p>
+  </td>
+  <td width=516>
+  <p>Uses:</p>
+  <p>Basic Stochastic Distance
+  Measurement with phonetic function and string compare function using 'jarowinkler'</p>
+  </td>
+ </tr>
+ <tr>
+  <td width=176>
+  <p>Product Hierarchy</p>
+  </td>
+  <td width=516>
+  <p>Uses 'Ensemble of Distance
+  Measurements' straightaway</p>
+  </td>
+ </tr>
+</table>
 
-  ----------------------------------------------------------------------------------------------------------------------------------
-  Address Dataset     Uses ‘Ensemble of Distance Measurements’ straightaway
-  ------------------- --------------------------------------------------------------------------------------------------------------
-  SKU Dataset         Uses:
-                      
-                      Basic Stochastic Distance Measurement with phonetic function and string compare function using ‘jarowinkler’
-
-  Product Hierarchy   Uses ‘Ensemble of Distance Measurements’ straightaway
-  ----------------------------------------------------------------------------------------------------------------------------------
 
 **Unsupervised Learning**
+<table>
+ <tr>
+  <td width=176>
+  <p>Address Dataset</p>
+  </td>
+  <td width=516>
+  <p>None </p>
+  </td>
+ </tr>
+ <tr>
+  <td width=176>
+  <p>SKU Dataset</p>
+  </td>
+  <td width=516>
+  <p>Uses:</p>
+  <p>A clustering algorithm is applied
+  to find clusters in the comparison patterns. In the case of two</p>
+  <p>clusters (the default), the cluster
+  further from the origin (i.e. representing higher similarity values) is
+  interpreted as the set of links, the other as the set of non-links.</p>
+  <p>Supported methods tried are: K-means
+  clustering and Bagged clustering</p>
+  </td>
+ </tr>
+ <tr>
+  <td width=176>
+  <p>Product Hierarchy</p>
+  </td>
+  <td width=516>
+  <p>None</p>
+  </td>
+ </tr>
+</table>
 
-  -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  Address Dataset     None
-  ------------------- ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  SKU Dataset         Uses:
-                      
-                      A clustering algorithm is applied to find clusters in the comparison patterns. In the case of two
-                      
-                      clusters (the default), the cluster further from the origin (i.e. representing higher similarity values) is interpreted as the set of links, the other as the set of non-links.
-                      
-                      Supported methods tried are: K-means clustering and Bagged clustering
-
-  Product Hierarchy   None
-  -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
+ 
 **Ensemble of Distance Measurements**
+<table>
+ <tr>
+  <td width=176>
+  <p>Address Dataset</p>
+  </td>
+  <td width=516>
+  <p>An ensemble of distance functions
+  are used with different distance metrics. Unrestricted comparison patterns for
+  all possible data pairs: n · m for linking two data sets with n and m records.
+  </p>
+  <p>Distance functions include the
+  following:</p>
+  <p>Method name -- Description</p>
+  <p>1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; osa à Optimal
+  string aligment, (restricted Damerau-Levenshtein distance).</p>
+  <p>2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; lv à Levenshtein
+  distance (as in R's native adist).</p>
+  <p>3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; dl à Full
+  Damerau-Levenshtein distance.</p>
+  <p>4.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; hamming à
+  Hamming distance (a and b must have same nr of characters).</p>
+  <p>5.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; lcs à Longest
+  common substring distance.</p>
+  <p>6.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; qgram à
+  q-gram distance.</p>
+  <p>7.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cosine à
+  cosine distance between q-gram profiles</p>
+  <p>8.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; jaccard à
+  Jaccard distance between q-gram profiles</p>
+  <p>9.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; jw à Jaro, or
+  Jaro-Winker distance.</p>
+  <p>10.&nbsp; soundex à
+  Distance based on soundex encoding </p>
+  <p>&nbsp;</p>
+  <p>Ensemble is performed by finding all
+  distances m pairs for a given n<sup>th</sup> pair  and finding valid
+  distances in all metrics and taking a pair that has all distances measured
+  with a valid value and is the least among the pairs.</p>
+  <p>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width=176>
+  <p>SKU Dataset</p>
+  </td>
+ </tr>
+ <tr>
+  <td width=176>
+  <p>Product Hierarchy</p>
+  </td>
+ </tr>
+</table>
 
-  -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  Address Dataset     An ensemble of distance functions are used with different distance metrics. Unrestricted comparison patterns for all possible data pairs: n · m for linking two data sets with n and m records.
-                      
-                      Distance functions include the following:
-                      
-                      Method name -- Description
-                      
-                      1.  osa Optimal string aligment, (restricted Damerau-Levenshtein distance).
-                      
-                      2.  lv Levenshtein distance (as in R’s native adist).
-                      
-                      3.  dl Full Damerau-Levenshtein distance.
-                      
-                      4.  hamming Hamming distance (a and b must have same nr of characters).
-                      
-                      5.  lcs Longest common substring distance.
-                      
-                      6.  qgram q-gram distance.
-                      
-                      7.  cosine cosine distance between q-gram profiles
-                      
-                      8.  jaccard Jaccard distance between q-gram profiles
-                      
-                      9.  jw Jaro, or Jaro-Winker distance.
-                      
-                      10. soundex Distance based on soundex encoding
-                      
-                      Ensemble is performed by finding all distances m pairs for a given n^th^ pair and finding valid distances in all metrics and taking a pair that has all distances measured with a valid value and is the least among the pairs.
-  ------------------- ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  SKU Dataset         
-
-  Product Hierarchy   
-  -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 **How does it solve the problem?**
 
@@ -147,10 +227,36 @@ training if that is possible.
 
 **What makes the solution robust?**
 
-  Address Dataset     Unrestricted m~x~n Single unified column matching
-  ------------------- ------------------------------------------------------------------------------------
-  SKU Dataset         A set of blocking to reduce and then ensemble to narrow the match and is effective
-  Product Hierarchy   Unrestricted m~x~n pair Single unified column matching
+<table>
+ <tr>
+  <td width=176>
+  <p>Address Dataset</p>
+  </td>
+  <td width=516>
+  <p>Unrestricted m<sub>x</sub>n Single
+  unified column matching</p>
+  </td>
+ </tr>
+ <tr>
+  <td width=176>
+  <p>SKU Dataset</p>
+  </td>
+  <td width=516>
+  <p>A set of blocking to reduce and
+  then ensemble to narrow the match and is effective </p>
+  </td>
+ </tr>
+ <tr>
+  <td width=176>
+  <p>Product Hierarchy</p>
+  </td>
+  <td width=516>
+  <p>Unrestricted m<sub>x</sub>n pair Single
+  unified column matching</p>
+  </td>
+ </tr>
+</table>
+
 
 Huge datasets may have an issue on m~x~n unrestricted distance
 calculation but may not be heavy compute cost given the cloud compute is
@@ -167,10 +273,33 @@ selected.
 1.  <span id="_Toc448178837" class="anchor"><span id="_Toc219701708"
     class="anchor"></span></span>Accuracy Measurement
 
-  Address Dataset     TBD (still working)
-  ------------------- ----------------------------
-  SKU Dataset         0.7 (70% Accuracy)
-  Product Hierarchy   9 out of 10 (90% Accuracy)
+<table>
+ <tr>
+  <td width=176>
+  <p>Address Dataset</p>
+  </td>
+  <td width=516>
+  <p>TBD (still working)</p>
+  </td>
+ </tr>
+ <tr>
+  <td width=176>
+  <p>SKU Dataset</p>
+  </td>
+  <td width=516>
+  <p>0.7 (70% Accuracy)</p>
+  </td>
+ </tr>
+ <tr>
+  <td width=176>
+  <p>Product Hierarchy</p>
+  </td>
+  <td width=516>
+  <p>9 out of 10 (90% Accuracy)</p>
+  </td>
+ </tr>
+</table>
+
 
 SKU :
 
@@ -189,25 +318,65 @@ height="8.479292432195976in"}
 
 You can access the apps as here:
 
-  ------------------------------------------------------------------------------------------------------------------------
-  Dataset             URL                                           Input Files (use these files in the Shiny.R web app)
-  ------------------- --------------------------------------------- ------------------------------------------------------
-  Address             <https://unileve2.shinyapps.io/addr-match/>   Addr-DataSet1.txt
-                                                                    
-                      **(still work in progress)**                  Addr-DataSet2.txt
-                                                                    
-                                                                    Addr-Match.txt
+<table>
+ <tr>
+  <td width=138>
+  <p><b>Dataset</b></p>
+  </td>
+  <td width=300>
+  <p><b>URL</b></p>
+  </td>
+  <td width=254>
+  <p><b>Input Files (use these
+  files in the Shiny.R web app)</b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=138>
+  <p><b>Address </b></p>
+  </td>
+  <td width=300>
+  <p><a
+  href="https://unileve2.shinyapps.io/addr-match/">https://unileve2.shinyapps.io/addr-match/</a></p>
+  <p><b>(still work in progress)</b></p>
+  </td>
+  <td width=254>
+  <p>Addr-DataSet1.txt</p>
+  <p>Addr-DataSet2.txt</p>
+  <p>Addr-Match.txt</p>
+  </td>
+ </tr>
+ <tr>
+  <td width=138>
+  <p><b>SKU </b></p>
+  </td>
+  <td width=300>
+  <p><a
+  href="https://unileve2.shinyapps.io/sku-match/">https://unileve2.shinyapps.io/sku-match/</a></p>
+  <p>&nbsp;</p>
+  </td>
+  <td width=254>
+  <p>Sku-Internal-Dataset.txt</p>
+  <p>Sku-ExtNielson-Dataset.txt</p>
+  <p>SKU_Match.txt</p>
+  </td>
+ </tr>
+ <tr>
+  <td width=138>
+  <p><b>Product Hierarchy</b></p>
+  </td>
+  <td width=300>
+  <p><a
+  href="https://unileve2.shinyapps.io/unl-r-app/">https://unileve2.shinyapps.io/unl-r-app/</a></p>
+  <p>&nbsp;</p>
+  </td>
+  <td width=254>
+  <p>Prod-lo1-lo2-ToMatch.txt</p>
+  <p>Prod-match.txt</p>
+  </td>
+ </tr>
+</table>
 
-  SKU                 <https://unileve2.shinyapps.io/sku-match/>    Sku-Internal-Dataset.txt
-                                                                    
-                                                                    Sku-ExtNielson-Dataset.txt
-                                                                    
-                                                                    SKU\_Match.txt
-
-  Product Hierarchy   <https://unileve2.shinyapps.io/unl-r-app/>    Prod-lo1-lo2-ToMatch.txt
-                                                                    
-                                                                    Prod-match.txt
-  ------------------------------------------------------------------------------------------------------------------------
 
 **How easily the solution can be implemented?**
 
