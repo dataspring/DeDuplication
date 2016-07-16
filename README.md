@@ -322,11 +322,11 @@ selected.
 
 SKU :
 
-<img src="Images/prod-hierarchy.png" width="621" height="396"> </img>
+<img src="Images/prod-hierarchy.png" > </img>
 
 Product Hierarchy:
 
-<img src="Images/sku.png" width="548" height="814"> </img>
+<img src="Images/sku.png" > </img>
 
 <a name="_Toc448178838"></a>
 ##3. Implementation & Adoption##
