@@ -1,16 +1,11 @@
-TABLE OF CONTENTS
+#Data Blending Challenge - DeDuplication using ML Techniques#
+----------
 
-[1. Methodology and Effectiveness 4](#_Toc448178836)
+##Business Problem##
+Unilever deals with internal structured data pertainig to customer biz addressess, SKU product codes & description and product heirarchy descriptions for each SKU. It buys/collects data from external vendors to augument its marketing reach and in teh process, the external datasets have thier owm nomenclature. i.e. fields and descriptions are bit different but pointing to same data row/record. Hence data needs to be matched accurately to get meaningful analytics.
 
-[2. Accuracy Measurement 6](#_Toc448178837)
-
-[3. Implementation & Adoption 7](#_Toc448178838)
-
-[4. Conclusion 9](#_Toc448178839)
-
-[5. References & Consideration 9](#_Toc448178840)
-
-**Summary**
+##Proposed Solution and ShinyR PoC Web App##
+<small><i>[ShinyR Web App code is in teh above folders and also hosted in RStudio ShinyApps.io]</></small>
 
 Data blending in the Unilever’s context is basically a subset of Record
 Linkage and De-Duplication problem. Given the constraints of data which
@@ -23,6 +18,17 @@ is the reduction of the amount of data pairs through focusing on
 specified agreement patterns. Whereas SKU dataset can leverage this
 feature to a limited extend and Product Hierarchy utilizes a pure simple
 weighted distance ensemble.
+
+[1. Methodology and Effectiveness ](#_Toc448178836)
+
+[2. Accuracy Measurement ](#_Toc448178837)
+
+[3. Implementation & Adoption ](#_Toc448178838)
+
+[4. Conclusion ](#_Toc448178839)
+
+[5. References & Consideration ](#_Toc448178840)
+
 
 Data blending for Unilever’s problem broadly involves the following
 steps:
@@ -47,8 +53,8 @@ properties and blending requirements
 > proposal is worth that effort to positively make some impact on data
 > blending in enterprise and public realm.
 
-1.  <span id="_Toc448178836" class="anchor"></span>Methodology and
-    Effectiveness
+<a name="_Toc448178836" ></a>
+##1. Methodology and Effectiveness##
 
 **Data Preparation:**
 
@@ -91,6 +97,7 @@ properties and blending requirements
 </table>
 
 **Basic Stochastic Distance Measurement / Blocking:**
+
 <table>
  <tr>
   <td width=176>
@@ -124,6 +131,7 @@ properties and blending requirements
 
 
 **Unsupervised Learning**
+
 <table>
  <tr>
   <td width=176>
@@ -160,6 +168,7 @@ properties and blending requirements
 
  
 **Ensemble of Distance Measurements**
+
 <table>
  <tr>
   <td width=176>
@@ -173,25 +182,25 @@ properties and blending requirements
   <p>Distance functions include the
   following:</p>
   <p>Method name -- Description</p>
-  <p>1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; osa à Optimal
+  <p>1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; osa - Optimal
   string aligment, (restricted Damerau-Levenshtein distance).</p>
-  <p>2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; lv à Levenshtein
+  <p>2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; lv - Levenshtein
   distance (as in R's native adist).</p>
-  <p>3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; dl à Full
+  <p>3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; dl - Full
   Damerau-Levenshtein distance.</p>
-  <p>4.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; hamming à
+  <p>4.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; hamming -
   Hamming distance (a and b must have same nr of characters).</p>
-  <p>5.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; lcs à Longest
+  <p>5.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; lcs - Longest
   common substring distance.</p>
-  <p>6.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; qgram à
+  <p>6.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; qgram -
   q-gram distance.</p>
-  <p>7.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cosine à
+  <p>7.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cosine -
   cosine distance between q-gram profiles</p>
-  <p>8.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; jaccard à
+  <p>8.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; jaccard -
   Jaccard distance between q-gram profiles</p>
-  <p>9.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; jw à Jaro, or
+  <p>9.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; jw - Jaro, or
   Jaro-Winker distance.</p>
-  <p>10.&nbsp; soundex à
+  <p>10.&nbsp; soundex -
   Distance based on soundex encoding </p>
   <p>&nbsp;</p>
   <p>Ensemble is performed by finding all
@@ -270,8 +279,8 @@ time constraint mapping is performed in the code and not exposed as a
 generic interface and can be co-developed if this solution/algorithm is
 selected.
 
-1.  <span id="_Toc448178837" class="anchor"><span id="_Toc219701708"
-    class="anchor"></span></span>Accuracy Measurement
+<a name="_Toc448178837"></a>
+##2. Accuracy Measurement##
 
 <table>
  <tr>
@@ -311,8 +320,8 @@ Product Hierarchy:
 ![](media/image2.png){width="5.716666666666667in"
 height="8.479292432195976in"}
 
-1.  <span id="_Toc448178838" class="anchor"></span>Implementation &
-    Adoption
+<a name="_Toc448178838"></a>
+##3. Implementation & Adoption##
 
 **Prototypes hosted @**
 
@@ -417,14 +426,15 @@ consider:
 
 <!-- -->
 
-1.  <span id="_Toc448178839" class="anchor"></span>Conclusion
+<a name="_Toc448178839"></a>
+##4. Conclusion##
 
 For Unilever Data Blending – a simple, powerful yet uncomplicated
 algorithm that used unsupervised reduction using Distance Ensemble is
 proposed which gives consistent and good results.
 
-1.  <span id="_Toc448178840" class="anchor"></span>References &
-    Consideration
+<a name="_Toc448178840"></a>
+##5. References & Consideration##
 
 **Books**
 
