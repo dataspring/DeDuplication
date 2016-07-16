@@ -2,12 +2,12 @@
 ----------
 
 ##Business Problem##
-Unilever deals with internal structured data pertainig to customer biz addressess, SKU product codes & description and product heirarchy descriptions for each SKU. It buys/collects data from external vendors to augument its marketing reach and in teh process, the external datasets have thier owm nomenclature. i.e. fields and descriptions are bit different but pointing to same data row/record. Hence data needs to be matched accurately to get meaningful analytics. Problem needs to address 3 datasets namely Address, SKU and Product Hierarchy (classifications).
+This retail gaint deals with internal structured data pertainig to customer biz addressess, SKU product codes & description and product heirarchy descriptions for each SKU. It buys/collects data from external vendors to augument its marketing reach and in the process, the external datasets have thier owm nomenclature. i.e. fields and descriptions are bit different but pointing to same data row/record. Hence data needs to be matched accurately to get meaningful analytics. Problem needs to address 3 datasets namely Address, SKU and Product Hierarchy (classifications).
 
 ##Proposed Solution and ShinyR PoC Web App##
 <small><i>[ShinyR Web App code is in the above folders submitted on Apr 2016 and also hosted in RStudio's cloud app platform ShinyApps.io]</i></small>
 
-Data blending in the Unilever’s context is basically a subset of Record
+Data blending in this context is basically a subset of Record
 Linkage and De-Duplication problem. Given the constraints of data which
 can’t be fitted into a definitive way of comparing individual fields or
 use them to narrow the amount of search is a unique problem to be
@@ -437,7 +437,7 @@ consider:
 <a name="_Toc448178839"></a>
 ##4. Conclusion##
 
-For Unilever Data Blending – a simple, powerful yet uncomplicated
+For this retail giant's Data Blending – a simple, powerful yet uncomplicated
 algorithm that used unsupervised reduction using Distance Ensemble is
 proposed which gives consistent and good results.
 
