@@ -322,13 +322,11 @@ selected.
 
 SKU :
 
-![](media/image1.png){width="6.470833333333333in"
-height="4.127777777777778in"}
+<img src="Images/prod-hierarchy.png" width="621" height="396"> </img>
 
 Product Hierarchy:
 
-![](media/image2.png){width="5.716666666666667in"
-height="8.479292432195976in"}
+<img src="Images/sku.png" width="548" height="814"> </img>
 
 <a name="_Toc448178838"></a>
 ##3. Implementation & Adoption##
